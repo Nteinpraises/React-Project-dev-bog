@@ -25,22 +25,11 @@ const Home = () => {
 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <p>{name} is turning {age} years old today</p>
-            <button onClick={whenClick}>Click Me</button>
-
-            {blogs.map((blog) => (
-            <div className="blog-preview" key={blog.id}>
-                <h2>{blog.title}</h2>
-                <p>{blog.body}</p>
-                <p>Written by {blog.author}</p>
-            </div>
-
-            ))}
-
-
+          <BlogList blogs={blogs}/>
+          
         </div>
      );
 }
  
 export default Home;
+
