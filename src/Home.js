@@ -12,9 +12,6 @@ const Home = () => {
     {title:'our alumni community', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, natus', author: 'Isaac'},
     {title:'our future projects', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, natus', author: 'Hamzad'},
    ])
-   
-
-
     const whenClick=()=>{
         myName('laundry');
         myAge(50);
@@ -25,7 +22,20 @@ const Home = () => {
 
     return ( 
         <div className="home">
-          <BlogList blogs={blogs}/>
+           <h2>Homepage</h2>
+            <p>{name} is turning {age} years old today</p>
+            <button onClick={whenClick}>Click Me</button>
+
+            {blogs.map((blog) => (
+            <div className="blog-preview" key={blog.id}>
+                <h2>{blog.title}</h2>
+                <p>{blog.body}</p>
+                <p>Written by {blog.author}</p>
+            </div>
+
+            ))}
+
+
           
         </div>
      );
