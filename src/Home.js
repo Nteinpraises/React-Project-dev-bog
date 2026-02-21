@@ -13,6 +13,9 @@ const Home = () => {
     {title:'our future projects', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, natus', author: 'Hamzad', id:4},
    ])
 
+   const [date, SetName] = useState('mario');
+
+
    const handleDelete = (id) => {
     const newBlogs = blogs.filter(blog => blog.id !== id);
     newBlog(newBlogs);
@@ -28,8 +31,8 @@ const Home = () => {
 
     useEffect(()=> {
         console.log('use effect ran');
-        console.log(blogs);
-    });
+        console.log(date);
+    },[date]);
 
     return ( 
         <div className="home">
@@ -47,6 +50,9 @@ const Home = () => {
 
             ))}
 
+
+            <button onClick={()=> SetName('Ankinimbom')}>Change name</button>
+            <p>{date}</p>
 
 
         </div>
