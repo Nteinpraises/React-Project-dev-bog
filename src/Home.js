@@ -25,32 +25,10 @@ const Home = () => {
 
     const whenClick=()=>{
         myName('laundry');
-        myAge(50);
-        
-       
+        myAge(50);  
     }
 
-    useEffect(()=> {
-        setTimeout(()=>{
-            fetch('http://localhost:8000/blogs')
-                .then(res => {
-                    if(!res.ok){
-                        throw Error('could not fetch the data for that resource');
-                    }
-                    return res.json();
-
-                })
-                .then(data => {
-                    newBlog(data);
-                    setIsPending(false);
-                    setError(null);
-                })
-                .catch(err => {
-                    setIsPending(false);
-                    setError(err.message);
-                })
-        }, 1000);
-    },[]);
+    
 
     return ( 
         <div className="home">
