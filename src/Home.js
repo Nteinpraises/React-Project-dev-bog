@@ -12,6 +12,7 @@ const Home = () => {
     {title:'our alumni community', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, natus', author: 'Isaac', id:3},
     {title:'our future projects', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, natus', author: 'Hamzad', id:4},
    ])
+   const [isPending, setIsPending] = useState(true);
 
    const [date, SetName] = useState('mario');
 
@@ -30,23 +31,27 @@ const Home = () => {
     }
 
     useEffect(()=> {
-        fetch('http://localhost:8000/blogs')
+        setTimeout(()=>{
+            fetch('http://localhost:8000/blogs')
         .then(res => {
             return res.json();
 
         })
         .then(data => {
-            console.log(data);
             newBlog(data);
+            setIsPending(false);
         })
+        }, 1000);
     },[]);
 
     return ( 
         <div className="home">
+           
            <h2>Homepage</h2>
             <p>{name} is turning {age} years old today</p>
             <button onClick={whenClick}>Click Me</button>
-
+            
+            {isPending && <div>Loading...</div>}
             {blogs.map((blog) => (
             <div className="blog-preview" key={blog.id}>
                 <h2>{blog.title}</h2>
