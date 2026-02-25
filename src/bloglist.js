@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const BlogList = (props) => {
 
     const blogs = props.blogs
@@ -7,7 +9,7 @@ const BlogList = (props) => {
 
     return ( 
         <div className="blog-list">
-            
+            <Link to ={'/blogs/${blog.id'}></Link>
         </div>
      );
 }
